@@ -45,9 +45,11 @@ int main(){
 
 bool pda(string word){
 	//All states in our pda
-	enum pdaState{q1=1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11};
+	enum pdaState{q1=1, q2, q3, q4, q5, q6, q7, q8, q9, q10};
 	//All 10 digits for ease of finding
 	string numbers = "0123456789";
+	//All potential operators
+	string operators = "+-/*";
 	//All strings begin in q1
 	pdaState currstate = q1;
 	//Stack for pushing and popping
@@ -56,8 +58,6 @@ bool pda(string word){
 	stringstream w(word);
 	//Grabber for each char
 	char ch;
-	//Keep track of whether or not we are in an accepting state
-	bool inAccept;
 	
 	//Main loop keeps going so long as entire stringstream hasn't been consumed
 	while(w.get(ch)){
@@ -139,17 +139,56 @@ bool pda(string word){
 			case q7:
 				if(numbers.find(ch) != string::npos){
 					currstate = q7;
+				} else if(ch == ')' && langStack.top() == '(') {
+					langStack.pop();
+					currstate = q8;
 				} else if(ch == 'a' && langStack.top() == 'a'){
 					//pop a
 					langStack.pop();
-					currstate = q10;
+					currstate = q9;
+				} else if(operators.find(ch) != string::npos) {
+					currstate = q4;
+				} else {
+					//crash
+					return false;
 				}
 
+				break;
 
+			case q8:
+				if(ch == ')' && langStack.top() == '('){
+					langStack.pop();
+					currstate = q8;
+				} else if(operators.find(ch) != string::npos){
+					currstate = q4;
+				} else if(ch == 'a' && langStack.top() == 'a') {
+					langStack.pop();
+					currstate = q9;
+				}else {
+					//crash
+					return false;
+				}
 
-		}		
+				break;
+
+			case q9:
+				if(ch == 'b' && langStack.top() == 'b'){
+					langStack.pop();
+					currstate = q9;
+				} else if(ch == 'a' && langStack.top() == 'a'){
+					langStack.pop();
+					currstate = q10;
+				} else {
+					//crash
+					return false;
+				}
+
+				break;
+
+			default:
+				return false;
+		}
 	}
 
-
-	return inAccept;
+	return langStack.top() == '$';
 }
