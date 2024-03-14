@@ -220,6 +220,7 @@ bool pda(string word){
 				break;
 
 			default:
+				cout << "In " << currstate <<". Read '" << ch << "', pop nothing, push nothing. PDA crashes." << endl;
 				return false;
 		}
 	}
