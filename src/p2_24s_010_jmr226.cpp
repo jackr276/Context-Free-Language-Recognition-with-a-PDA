@@ -9,6 +9,7 @@
 #include <iostream>
 #include <stack>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -45,6 +46,8 @@ int main(){
 bool pda(string word){
 	//All states in our pda
 	enum pdaState{q1=1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11};
+	//All 10 digits for ease of finding
+	string numbers = "0123456789";
 	//All strings begin in q1
 	pdaState currstate = q1;
 	//Stack for pushing and popping
@@ -58,7 +61,93 @@ bool pda(string word){
 	
 	//Main loop keeps going so long as entire stringstream hasn't been consumed
 	while(w.get(ch)){
+		switch(currstate){
+			//start state, all strings begin here
+			case q1:
+				//Read nothing, pop nothing, push $(stack marker)
+				langStack.push('$');
+				//Move to q2
+				currstate = q2;
+				//we don't need the character here, simply pushing $ to stack
+				w.putback(ch);
 			
+				break;
+			
+			case q2:
+				//First character seen must be a
+				if(ch != 'a'){
+					return false;
+				}	
+				//read a, pop nothing, push a, move to q3
+				langStack.push('a');
+				currstate = q3;
+				
+				break;
+
+			case q3:
+				//We can see as many b's as we want
+				if(ch == 'b'){
+					langStack.push('b');
+					currstate = q3;
+				} else if(ch == 'a') {
+					langStack.push('a');
+					currstate = q4;
+				} else {
+					//crash
+					return false;
+				}
+
+				break;
+
+			case q4:
+				if(ch == '('){
+					langStack.push('(');
+					currstate = q4;
+				} else if(ch == '.'){
+					currstate = q6;
+				} else if(numbers.find(ch) != string::npos){
+					currstate = q5;
+				} else {
+					//crash
+					return false;
+				}
+			
+				break;
+
+			case q5:
+				if(numbers.find(ch) != string::npos){
+					currstate = q5;
+				} else if(ch == '.') {
+					currstate = q7;
+				} else {
+					//crash
+					return false;
+				}
+
+				break;
+
+			case q6:
+				if(numbers.find(ch) != string::npos){
+					currstate = q7;
+				} else {
+					//crash
+					return false;
+				}
+
+				break;
+			
+			case q7:
+				if(numbers.find(ch) != string::npos){
+					currstate = q7;
+				} else if(ch == 'a' && langStack.top() == 'a'){
+					//pop a
+					langStack.pop();
+					currstate = q10;
+				}
+
+
+
+		}		
 	}
 
 
