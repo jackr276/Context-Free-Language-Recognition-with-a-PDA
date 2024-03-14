@@ -21,6 +21,8 @@ using namespace std;
 int main(){
 	//Predeclare main PDA function
 	bool pda(string word);
+	//Big print statement
+	printf("Project 2 for CS 341\nSection number: 010\nSemester: Spring 2024\nWritten by: Jack Robbins, jmr226\nInstructor: Marvin Nakayama");
 
 	int numStrings;
 	//prompt user for number of strings to enter
