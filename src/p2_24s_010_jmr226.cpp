@@ -176,19 +176,24 @@ bool pda(string word){
 
 				break;
 			
+			//If we get to q7, we can see as many digits as we want, and exit upon seeing 'a', ')' or an operator
 			case q7:
+				//We can see as many numbers as we want, so stay in q7
 				if(numbers.find(ch) != string::npos){
 					cout << "In q7. Read '" << ch << "', pop nothing, push nothing. Move to q7." << endl;
 					currstate = q7;
+				//Once we see a ')' and can pop a '(' off the stack, move to q8
 				} else if(ch == ')' && langStack.top() == '(') {
 					cout << "In q7. Read ')', pop '(', push nothing. Move to q8." << endl; 
 					langStack.pop();
 					currstate = q8;
+				//If we see an a and can pop an a, move to q9 to begin accepting sequence
 				} else if(ch == 'a' && langStack.top() == 'a'){
 					cout << "In q7. Read 'a', pop 'a', push nothing. Move to q9." << endl;
 					//pop a
 					langStack.pop();
 					currstate = q9;
+				//If we see an operator, we must see another number, so move back to q4
 				} else if(operators.find(ch) != string::npos) {
 					cout << "In q7. Read '" << ch << "', pop nothing, push nothing. Move to q4." << endl;
 					currstate = q4;
