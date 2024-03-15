@@ -144,7 +144,7 @@ bool pda(string word){
 			
 				break;
 	
-			//In q5, we cna see as many numbers as we want, and exit upon seeing a '.'
+			//In q5, we can see as many numbers as we want, and exit upon seeing a '.'
 			case q5:
 				//Numbers result in the PDA staying in q5
 				if(numbers.find(ch) != string::npos){
@@ -162,7 +162,9 @@ bool pda(string word){
 
 				break;
 
+			//If they PDA is in q6, it means that we've seen a dot before seeing a number 
 			case q6:
+				//We must see a number to move on
 				if(numbers.find(ch) != string::npos){
 					cout << "In q6. Read '" << ch << "', pop nothing, push nothing. Move to q7." << endl;
 					currstate = q7;
@@ -198,14 +200,18 @@ bool pda(string word){
 
 				break;
 
+			//In q8, we can read as many ')' as the stack allows, and we exit upon seeing an 'a' or an operator
 			case q8:
+				//As long as these are matched in the stack, we can proceed
 				if(ch == ')' && langStack.top() == '('){
 					cout << "In q8. Read ')', pop '(', push nothing. Move to q8." << endl;
 					langStack.pop();
 					currstate = q8;
+				//If we see an operator, there must be another number after it, so return to q4
 				} else if(operators.find(ch) != string::npos){
 					cout << "In q8. Read '" << ch << "', pop nothing, push nothing. Move to q4." << endl;
 					currstate = q4;
+				//If we see an 'a', we begin checking the final sequence
 				} else if(ch == 'a' && langStack.top() == 'a') {
 					cout << "In q8. Read 'a', pop 'a', push nothing. Move to q9." << endl;
 					langStack.pop();
@@ -218,11 +224,14 @@ bool pda(string word){
 
 				break;
 
+			//If we make it here, we've already seen 'a' and we can now see as many b's as are on the stack
 			case q9:
+				//There is no limit to the number of b's that we can see, so stay in q9
 				if(ch == 'b' && langStack.top() == 'b'){
 					cout << "In q9. Read 'b', pop 'b', push nothing. Move to q9." << endl;
 					langStack.pop();
 					currstate = q9;
+				//once we see an 'a', we move to q10
 				} else if(ch == 'a' && langStack.top() == 'a'){
 					cout << "In q9. Read 'a', pop 'a', push nothing. Move to q10." << endl;
 					langStack.pop();
