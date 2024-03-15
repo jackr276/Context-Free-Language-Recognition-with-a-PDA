@@ -39,17 +39,22 @@ int main(){
 	
 		cout << "\nProcessing string: " << word << endl;
 
+		//Print out appropriate message
 		if(pda(word)) {
 			cout << "\n" << word << " is in the language\n" << endl;
 		} else {
 			cout << "\n" << word << " is not in the language\n" << endl;
 		}
 	}
-
 	return 0;
 }
 
 
+/**
+ * The PDA function simulates a pushdown automaton that recognizes the language. The PDA is simulated using
+ * a while loop for grabbing chars, an enumerated pdaState type, and a large swtich statement. If at any point the
+ * PDA crashes, this function hard exits by returning false.
+ */
 bool pda(string word){
 	//All states in our pda
 	enum pdaState{q1=1, q2, q3, q4, q5, q6, q7, q8, q9, q10};
@@ -69,7 +74,7 @@ bool pda(string word){
 	//Main loop keeps going so long as entire stringstream hasn't been consumed
 	while(w.get(ch)){
 		switch(currstate){
-			//start state, all strings begin here
+			//start state, all strings begin here. The PDA never returns to here
 			case q1:
 				cout << "In q1. Read nothing, pop nothing, push '$'. Move to q2." << endl;
 				//Read nothing, pop nothing, push $(stack marker)
@@ -80,7 +85,8 @@ bool pda(string word){
 				w.putback(ch);
 
 				break;
-			
+		
+			//We enter here immediately after the start state, and we must see an 'a'
 			case q2:
 				//First character seen must be a
 				if(ch != 'a'){
@@ -94,13 +100,16 @@ bool pda(string word){
 				
 				break;
 
+			//In q3, we can see as many b's as we want. We can only exit q3 by reading an 'a'
 			case q3:
 				//We can see as many b's as we want
 				if(ch == 'b'){
+					//Keep track of the 'b's on the stack
 					cout << "In q3. Read 'b', pop nothing, push 'b'. Move to q3." << endl;
 					langStack.push('b');
 					currstate = q3;
 				} else if(ch == 'a') {
+					//if we see an 'a', leave q4
 					cout << "In q3. Read 'a', pop nothing, push 'a'. Move to q4." << endl;
 					langStack.push('a');
 					currstate = q4;
@@ -111,17 +120,21 @@ bool pda(string word){
 				}
 
 				break;
-
+			
+			//In q4, we can read as many '('s as we want. This state can only be left on reading '.' or a number
 			case q4:
+				//Keep track of the lParens on the stack
 				if(ch == '('){
 					cout << "In q4. Read '(', pop nothing, push '('. Move to q4." << endl;
 					langStack.push('(');
 					currstate = q4;
 				} else if(ch == '.'){
+					//q6 is the '.' state
 					cout << "In q4. Read '.', pop nothing, push nothing. Move to q6." << endl;
 					currstate = q6;
 				} else if(numbers.find(ch) != string::npos){
-					cout << "In q4. Read '" << ch <<"', pop nothing, push nothing. Move to q6." << endl;
+					//If we see a number, move to q5
+					cout << "In q4. Read '" << ch <<"', pop nothing, push nothing. Move to q5." << endl;
 					currstate = q5;
 				} else {
 					//crash
@@ -130,11 +143,14 @@ bool pda(string word){
 				}
 			
 				break;
-
+	
+			//In q5, we cna see as many numbers as we want, and exit upon seeing a '.'
 			case q5:
+				//Numbers result in the PDA staying in q5
 				if(numbers.find(ch) != string::npos){
 					cout << "In q5. Read '" << ch <<"', pop nothing, push nothing. Move to q5." << endl;
 					currstate = q5;
+				//The '.' will escape this state
 				} else if(ch == '.') {
 					cout << "In q5. Read '.', pop nothing, push nothing. Move to q7." << endl;
 					currstate = q7;
@@ -219,17 +235,20 @@ bool pda(string word){
 
 				break;
 
+			//We only end up here if we read a's after we've exceeded the number of a's in the front
 			default:
 				cout << "In " << currstate <<". Read '" << ch << "', pop nothing, push nothing. PDA crashes." << endl;
 				return false;
 		}
 	}
-	
+
+	//If we end and the end of the stack is the stack marker('$'), the string has passed through successfully
 	if(langStack.top() == '$'){
 		cout << "In q10. Read nothing, pop '$', push nothing. Move to q11 and accept." << endl; 
 	} else {
 		cout << "In q10. Read nothing, pop '" << langStack.top() << "', push nothing. PDA crashes" << endl;
 	}
 
+	//Return based on if the top of stack is '$'
 	return langStack.top() == '$';
 }
