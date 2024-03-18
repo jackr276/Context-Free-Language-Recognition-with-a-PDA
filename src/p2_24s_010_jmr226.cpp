@@ -11,6 +11,9 @@
 #include <sstream>
 #include <string>
 
+//Define lowercase epsilon for printing convenience
+#define EPSILON "\u03B5"
+
 using namespace std;
 
 
@@ -76,7 +79,7 @@ bool pda(string word){
 		switch(currstate){
 			//start state, all strings begin here. The PDA never returns to here
 			case q1:
-				cout << "In q1. Read nothing, pop nothing, push '$'. Move to q2." << endl;
+				printf("In q1. Read %s, pop %s, push '$'. Move to q2.\n", EPSILON, EPSILON);
 				//Read nothing, pop nothing, push $(stack marker)
 				langStack.push('$');
 				//Move to q2
@@ -90,10 +93,10 @@ bool pda(string word){
 			case q2:
 				//First character seen must be a
 				if(ch != 'a'){
-					cout << "In q2. Read '" << ch << "', pop nothing, push nothing. PDA crashes." << endl;
+					printf("In q2. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
-				cout << "In q2. Read 'a', pop nothing, push 'a'. Move to q3." << endl;
+				printf("In q2. Read 'a', pop %s, push 'a'. Move to q3.\n", EPSILON);
 				//read a, pop nothing, push a, move to q3
 				langStack.push('a');
 				currstate = q3;
@@ -258,7 +261,8 @@ bool pda(string word){
 
 	//If we end and the end of the stack is the stack marker('$'), the string has passed through successfully
 	if(langStack.top() == '$'){
-		cout << "In q10. Read nothing, pop '$', push nothing. Move to q11 and accept." << endl; 
+		cout << "In q10. Read nothing, pop '$', push nothing. Move to q11." << endl;
+		cout << "In q11, the accepting state. String has been fully processed. String is accepted" << endl;
 	} else {
 		cout << "In q10. Read nothing, pop '" << langStack.top() << "', push nothing. PDA crashes" << endl;
 	}
