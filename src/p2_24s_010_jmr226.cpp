@@ -32,7 +32,7 @@ int main(){
 	cout << "\nEnter the number of strings that you would like to process: ";
 	cin >> numStrings;
 
-	cout << "Processing " << numStrings << " string" << (numStrings == 1 ? "\n" : "s\n") << endl;
+	cout << "\nProcessing " << numStrings << " string" << (numStrings == 1 ? "\n" : "s\n") << endl;
 
 	//Main processing loop, simply calls pda function and prints appropriate message
 	for(int i = 1; i <= numStrings && numStrings > 0; i++) {
@@ -40,11 +40,11 @@ int main(){
 		printf("Enter string %d of %d: ", i, numStrings);
 		cin >> word;
 	
-		cout << "\nProcessing string: " << word << endl;
+		cout << "\nProcessing string: " << word << endl << endl;
 
 		//Print out appropriate message
 		if(pda(word)) {
-			cout << "\n" << word << " is in the language\n" << endl;
+			cout << "\n\n" << word << " is in the language\n" << endl;
 		} else {
 			cout << "\n" << word << " is not in the language\n" << endl;
 		}

@@ -1,0 +1,472 @@
+Project 2 for CS 341
+Section number: 010
+Semester: Spring 2024
+Written by: Jack Robbins, jmr226
+Instructor: Marvin Nakayama
+Enter the number of strings that you would like to process: 
+Processing 15 strings
+
+Enter string 1 of 15: 
+Processing string: abbba43.51386abbba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '5', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '6', pop ε, push ε. Move to q7.
+In q7. Read 'a', pop 'a', push ε. Move to q9.
+In q9. Read 'b', pop 'b', push ε. Move to q9.
+In q9. Read 'b', pop 'b', push ε. Move to q9.
+In q9. Read 'b', pop 'b', push ε. Move to q9.
+In q9. Read 'a', pop 'a', push ε. Move to q10.
+In q10. Read ε, pop '$', push ε. Move to q11.
+In q11, the accepting state. String has been fully processed. String is accepted.
+
+abbba43.51386abbba is in the language
+
+Enter string 2 of 15: 
+Processing string: aa.78+27.-3.013/837.842+aa
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '7', pop ε, push ε. Move to q7.
+In q7. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '7', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '0', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '8', pop ε, push ε. Move to q5.
+In q5. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '7', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '4', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read 'a', pop ε, push ε. PDA crashes.
+
+aa.78+27.-3.013/837.842+aa is not in the language
+
+Enter string 3 of 15: 
+Processing string: aa48622.+.41*1.2/00.1/521.23-.9+.53/7.aa
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '8', pop ε, push ε. Move to q5.
+In q5. Read '6', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '4', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '1', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '0', pop ε, push ε. Move to q5.
+In q5. Read '0', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '5', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '1', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '9', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '5', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '7', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read 'a', pop 'a', push ε. Move to q9.
+In q9. Read 'a', pop 'a', push ε. Move to q10.
+In q10. Read ε, pop '$', push ε. Move to q11.
+In q11, the accepting state. String has been fully processed. String is accepted.
+
+aa48622.+.41*1.2/00.1/521.23-.9+.53/7.aa is in the language
+
+Enter string 4 of 15: 
+Processing string: abba382.89*14.2aba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '8', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '9', pop ε, push ε. Move to q7.
+In q7. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '1', pop ε, push ε. Move to q5.
+In q5. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read 'a', pop 'a', push ε. Move to q9.
+In q9. Read 'b', pop 'b', push ε. Move to q9.
+In q9. Read 'a', pop ε, push ε. PDA crashes.
+
+abba382.89*14.2aba is not in the language
+
+Enter string 5 of 15: 
+Processing string: aba4.91-.*17.9aba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '9', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '*', pop ε, push ε. PDA crashes.
+
+aba4.91-.*17.9aba is not in the language
+
+Enter string 6 of 15: 
+Processing string: aa44.88.6+3.208aa
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '.', pop ε, push ε. PDA crashes.
+
+aa44.88.6+3.208aa is not in the language
+
+Enter string 7 of 15: 
+Processing string: aba(1.2+(3.5-.9)/19).3aba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '1', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '5', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '9', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '1', pop ε, push ε. Move to q5.
+In q5. Read '9', pop ε, push ε. Move to q5.
+In q5. Read ')', pop ε, push ε. PDA crashes.
+
+aba(1.2+(3.5-.9)/19).3aba is not in the language
+
+Enter string 8 of 15: 
+Processing string: abba(.4)64abba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '4', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '6', pop ε, push ε. PDA crashes.
+
+abba(.4)64abba is not in the language
+
+Enter string 9 of 15: 
+Processing string: aba((824.23+(9.22-00.0)*21.2))+((.2/7.))abba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '8', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '9', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '0', pop ε, push ε. Move to q5.
+In q5. Read '0', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '0', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '1', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '7', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read ')', pop '(', push ε. Move to q8.
+In q8. Read 'a', pop 'a', push ε. Move to q9.
+In q9. Read 'b', pop 'b', push ε. Move to q9.
+In q9. Read 'b', pop ε, push ε. PDA crashes.
+
+aba((824.23+(9.22-00.0)*21.2))+((.2/7.))abba is not in the language
+
+Enter string 10 of 15: 
+Processing string: aba(())aba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read ')', pop ε, push ε. PDA crashes.
+
+aba(())aba is not in the language
+
+Enter string 11 of 15: 
+Processing string: abba((14.252+(692.211*(.39+492.1))/49.235)abba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '1', pop ε, push ε. Move to q5.
+In q5. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '5', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '6', pop ε, push ε. Move to q5.
+In q5. Read '9', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '9', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '9', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '9', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '5', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read 'a', pop ε, push ε. PDA crashes.
+
+abba((14.252+(692.211*(.39+492.1))/49.235)abba is not in the language
+
+Enter string 12 of 15: 
+Processing string: abba+6.5abba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '+', pop ε, push ε. PDA crashes.
+
+abba+6.5abba is not in the language
+
+Enter string 13 of 15: 
+Processing string: aa26.0*(.87/((4.+.2)/(23.1)-2.9)+6.)/(((823.*.333-57.*8.0)/.33))+.76aa
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '6', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '0', pop ε, push ε. Move to q7.
+In q7. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '7', pop ε, push ε. Move to q7.
+In q7. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '2', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '1', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '9', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '6', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '8', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '5', pop ε, push ε. Move to q5.
+In q5. Read '7', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '8', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '0', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '3', pop ε, push ε. Move to q7.
+In q7. Read '3', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '7', pop ε, push ε. Move to q7.
+In q7. Read '6', pop ε, push ε. Move to q7.
+In q7. Read 'a', pop 'a', push ε. Move to q9.
+In q9. Read 'a', pop 'a', push ε. Move to q10.
+In q10. Read ε, pop '$', push ε. Move to q11.
+In q11, the accepting state. String has been fully processed. String is accepted.
+
+aa26.0*(.87/((4.+.2)/(23.1)-2.9)+6.)/(((823.*.333-57.*8.0)/.33))+.76aa is in the language
+
+Enter string 14 of 15: 
+Processing string: abba.0*(32.922+.7-*9.))abba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '0', pop ε, push ε. Move to q7.
+In q7. Read '*', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '3', pop ε, push ε. Move to q5.
+In q5. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '9', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '2', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '7', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '*', pop ε, push ε. PDA crashes.
+
+abba.0*(32.922+.7-*9.))abba is not in the language
+
+Enter string 15 of 15: 
+Processing string: aba(4.+(.8-9.))/2.)*3.4+(5.21/34.2aba
+
+In q1. Read ε, pop ε, push '$'. Move to q2.
+In q2. Read 'a', pop ε, push 'a'. Move to q3.
+In q3. Read 'b', pop ε, push 'b'. Move to q3.
+In q3. Read 'a', pop ε, push 'a'. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '4', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read '+', pop ε, push ε. Move to q4.
+In q4. Read '(', pop ε, push '(', Move to q4.
+In q4. Read '.', pop ε, push ε. Move to q6.
+In q6. Read '8', pop ε, push ε. Move to q7.
+In q7. Read '-', pop ε, push ε. Move to q4.
+In q4. Read '9', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read ')', pop '(', push ε. Move to q8.
+In q8. Read ')', pop '(', push ε. Move to q8.
+In q8. Read '/', pop ε, push ε. Move to q4.
+In q4. Read '2', pop ε, push ε. Move to q5.
+In q5. Read '.', pop ε, push ε. Move to q7.
+In q7. Read ')', pop ε, push ε. PDA crashes.
+
+aba(4.+(.8-9.))/2.)*3.4+(5.21/34.2aba is not in the language
+
