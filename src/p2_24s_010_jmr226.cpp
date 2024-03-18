@@ -32,7 +32,7 @@ int main(){
 	cout << "\nEnter the number of strings that you would like to process: ";
 	cin >> numStrings;
 
-	cout << "\nProcessing " << numStrings << " string" << (numStrings == 1 ? "" : "s") << endl;
+	cout << "Processing " << numStrings << " string" << (numStrings == 1 ? "\n" : "s\n") << endl;
 
 	//Main processing loop, simply calls pda function and prints appropriate message
 	for(int i = 1; i <= numStrings && numStrings > 0; i++) {
