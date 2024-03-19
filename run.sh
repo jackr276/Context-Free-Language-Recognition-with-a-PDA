@@ -3,20 +3,24 @@
 
 #!/bin/bash
 
-file=$1
-
-#Ensure filename is valid
-if [[ ! -f $file ]]; then
-	echo "Invalid file name"
+#Ensure file exists
+if [[ ! -f ./src/pda.cpp ]]; then
+	echo "Source code file \"pda.cpp\" not found"
 	exit 1;
 fi
 
-read -p "Enter name of testing file: " TESTS
-read -p "Enter name of output file: " OUTPUT
+read -p "Do you want to use the given test cases?[Y/n]: " USEGIVEN
 
-name=$(basename -s .cpp "$file")
-
-g++ -Wall -Wextra $file -o $name
+#Compile with aggressive warnings
+g++ -Wall -Wextra ./src/pda.cpp -o ./src/pda
 
 
-./${name} < TESTS > OUTPUT
+#If the user wants to use given test cases, pipe them in
+if [[ $USEGIVEN == "Y" ]] || [[ $USEGIVEN == "y" ]]; then
+	./src/pda < tests/test_cases.txt
+	exit 0;
+fi
+
+#otherwise hand control over to the program for input
+./src/pda
+
