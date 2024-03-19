@@ -25,7 +25,7 @@ int main(){
 	//Predeclare main PDA function
 	bool pda(string word);
 	//Big print statement
-	printf("Project 2 for CS 341\nSection number: 010\nSemester: Spring 2024\nWritten by: Jack Robbins, jmr226\nInstructor: Marvin Nakayama");
+	printf("Project 2 for CS 341\nSection number: 010\nSemester: Spring 2024\nWritten by: Jack Robbins, jmr226\nInstructor: Marvin Nakayama, marvin@njit.edu\n");
 
 	int numStrings;
 	//prompt user for number of strings to enter
@@ -79,7 +79,7 @@ bool pda(string word){
 		switch(currstate){
 			//start state, all strings begin here. The PDA never returns to here
 			case q1:
-				printf("In q1. Read %s, pop %s, push '$'. Move to q2.\n", EPSILON, EPSILON);
+				printf("In q1. Read %s, pop %s, push $. Move to q2.\n", EPSILON, EPSILON);
 				//Read nothing, pop nothing, push $(stack marker)
 				langStack.push('$');
 				//Move to q2
@@ -93,10 +93,10 @@ bool pda(string word){
 			case q2:
 				//First character seen must be a
 				if(ch != 'a'){
-					printf("In q2. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q2. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
-				printf("In q2. Read 'a', pop %s, push 'a'. Move to q3.\n", EPSILON);
+				printf("In q2. Read a, pop %s, push a. Move to q3.\n", EPSILON);
 				//read a, pop nothing, push a, move to q3
 				langStack.push('a');
 				currstate = q3;
@@ -108,17 +108,17 @@ bool pda(string word){
 				//We can see as many b's as we want
 				if(ch == 'b'){
 					//Keep track of the 'b's on the stack
-					printf("In q3. Read 'b', pop %s, push 'b'. Move to q3.\n", EPSILON);
+					printf("In q3. Read b, pop %s, push b. Move to q3.\n", EPSILON);
 					langStack.push('b');
 					currstate = q3;
 				} else if(ch == 'a') {
 					//if we see an 'a', leave q4
-					printf("In q3. Read 'a', pop %s, push 'a'. Move to q4.\n", EPSILON);
+					printf("In q3. Read a, pop %s, push a. Move to q4.\n", EPSILON);
 					langStack.push('a');
 					currstate = q4;
 				} else {
 					//crash
-					printf("In q3. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q3. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
 
@@ -128,20 +128,20 @@ bool pda(string word){
 			case q4:
 				//Keep track of the lParens on the stack
 				if(ch == '('){
-					printf("In q4. Read '(', pop %s, push '(', Move to q4.\n", EPSILON);
+					printf("In q4. Read (, pop %s, push (. Move to q4.\n", EPSILON);
 					langStack.push('(');
 					currstate = q4;
 				} else if(ch == '.'){
 					//q6 is the '.' state
-					printf("In q4. Read '.', pop %s, push %s. Move to q6.\n", EPSILON, EPSILON);
+					printf("In q4. Read ., pop %s, push %s. Move to q6.\n", EPSILON, EPSILON);
 					currstate = q6;
 				} else if(numbers.find(ch) != string::npos){
 					//If we see a number, move to q5
-					printf("In q4. Read '%c', pop %s, push %s. Move to q5.\n", ch, EPSILON, EPSILON);
+					printf("In q4. Read %c, pop %s, push %s. Move to q5.\n", ch, EPSILON, EPSILON);
 					currstate = q5;
 				} else {
 					//crash
-					printf("In q4. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q4. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
 			
@@ -151,15 +151,15 @@ bool pda(string word){
 			case q5:
 				//Numbers result in the PDA staying in q5
 				if(numbers.find(ch) != string::npos){
-					printf("In q5. Read '%c', pop %s, push %s. Move to q5.\n", ch, EPSILON, EPSILON);
+					printf("In q5. Read %c, pop %s, push %s. Move to q5.\n", ch, EPSILON, EPSILON);
 					currstate = q5;
 				//The '.' will escape this state
 				} else if(ch == '.') {
-					printf("In q5. Read '.', pop %s, push %s. Move to q7.\n", EPSILON, EPSILON);
+					printf("In q5. Read ., pop %s, push %s. Move to q7.\n", EPSILON, EPSILON);
 					currstate = q7;
 				} else {
 					//crash
-					printf("In q5. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q5. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
 
@@ -169,11 +169,11 @@ bool pda(string word){
 			case q6:
 				//We must see a number to move on
 				if(numbers.find(ch) != string::npos){
-					printf("In q6. Read '%c', pop %s, push %s. Move to q7.\n", ch, EPSILON, EPSILON);
+					printf("In q6. Read %c, pop %s, push %s. Move to q7.\n", ch, EPSILON, EPSILON);
 					currstate = q7;
 				} else {
 					//crash
-					printf("In q6. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q6. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
 
@@ -183,26 +183,26 @@ bool pda(string word){
 			case q7:
 				//We can see as many numbers as we want, so stay in q7
 				if(numbers.find(ch) != string::npos){
-					printf("In q7. Read '%c', pop %s, push %s. Move to q7.\n", ch, EPSILON, EPSILON);
+					printf("In q7. Read %c, pop %s, push %s. Move to q7.\n", ch, EPSILON, EPSILON);
 					currstate = q7;
 				//Once we see a ')' and can pop a '(' off the stack, move to q8
 				} else if(ch == ')' && langStack.top() == '(') {
-					printf("In q7. Read ')', pop '(', push %s. Move to q8.\n", EPSILON);	
+					printf("In q7. Read ), pop (, push %s. Move to q8.\n", EPSILON);	
 					langStack.pop();
 					currstate = q8;
 				//If we see an a and can pop an a, move to q9 to begin accepting sequence
 				} else if(ch == 'a' && langStack.top() == 'a'){
-					printf("In q7. Read 'a', pop 'a', push %s. Move to q9.\n", EPSILON);
+					printf("In q7. Read a, pop a, push %s. Move to q9.\n", EPSILON);
 					//pop a
 					langStack.pop();
 					currstate = q9;
 				//If we see an operator, we must see another number, so move back to q4
 				} else if(operators.find(ch) != string::npos) {
-					printf("In q7. Read '%c', pop %s, push %s. Move to q4.\n", ch, EPSILON, EPSILON);
+					printf("In q7. Read %c, pop %s, push %s. Move to q4.\n", ch, EPSILON, EPSILON);
 					currstate = q4;
 				} else {
 					//crash
-					printf("In q7. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q7. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
 
@@ -212,21 +212,21 @@ bool pda(string word){
 			case q8:
 				//As long as these are matched in the stack, we can proceed
 				if(ch == ')' && langStack.top() == '('){
-					printf("In q8. Read ')', pop '(', push %s. Move to q8.\n", EPSILON);	
+					printf("In q8. Read ), pop (, push %s. Move to q8.\n", EPSILON);	
 					langStack.pop();
 					currstate = q8;
 				//If we see an operator, there must be another number after it, so return to q4
 				} else if(operators.find(ch) != string::npos){
-					printf("In q8. Read '%c', pop %s, push %s. Move to q4.\n", ch, EPSILON, EPSILON);
+					printf("In q8. Read %c, pop %s, push %s. Move to q4.\n", ch, EPSILON, EPSILON);
 					currstate = q4;
 				//If we see an 'a', we begin checking the final sequence
 				} else if(ch == 'a' && langStack.top() == 'a') {
-					printf("In q8. Read 'a', pop 'a', push %s. Move to q9.\n", EPSILON);
+					printf("In q8. Read a, pop a, push %s. Move to q9.\n", EPSILON);
 					langStack.pop();
 					currstate = q9;
 				}else {
 					//crash
-					printf("In q8. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q8. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
 
@@ -236,17 +236,17 @@ bool pda(string word){
 			case q9:
 				//There is no limit to the number of b's that we can see, so stay in q9
 				if(ch == 'b' && langStack.top() == 'b'){
-					printf("In q9. Read 'b', pop 'b', push %s. Move to q9.\n", EPSILON);
+					printf("In q9. Read b, pop b, push %s. Move to q9.\n", EPSILON);
 					langStack.pop();
 					currstate = q9;
 				//once we see an 'a', we move to q10
 				} else if(ch == 'a' && langStack.top() == 'a'){
-					printf("In q9. Read 'a', pop 'a', push %s. Move to q10.\n", EPSILON);	
+					printf("In q9. Read a, pop a, push %s. Move to q10.\n", EPSILON);	
 					langStack.pop();
 					currstate = q10;
 				} else {
 					//crash
-					printf("In q9. Read '%c', pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
+					printf("In q9. Read %c, pop %s, push %s. PDA crashes.\n", ch, EPSILON, EPSILON);
 					return false;
 				}
 
@@ -254,17 +254,17 @@ bool pda(string word){
 
 			//We only end up here if we read a's after we've exceeded the number of a's in the front
 			default:
-				printf("In %s. Read '%c', pop %s, push %s. PDA crashes.\n", (char*)currstate, ch, EPSILON, EPSILON);
+				printf("In %s. Read %c, pop %s, push %s. PDA crashes.\n", (char*)currstate, ch, EPSILON, EPSILON);
 				return false;
 		}
 	}
 
 	//If we end and the end of the stack is the stack marker('$'), the string has passed through successfully
 	if(langStack.top() == '$'){
-		printf("In q10. Read %s, pop '$', push %s. Move to q11.\n", EPSILON, EPSILON);
+		printf("In q10. Read %s, pop $, push %s. Move to q11.\n", EPSILON, EPSILON);
 		printf("In q11, the accepting state. String has been fully processed. String is accepted.");
 	} else {
-		printf("In q10. Read %s, pop '%c', push %s. PDA crashes.\n", EPSILON, langStack.top(), EPSILON);
+		printf("In q10. Read %s, pop %c, push %s. PDA crashes.\n", EPSILON, langStack.top(), EPSILON);
 	}
 
 	//Return based on if the top of stack is '$'
