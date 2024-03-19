@@ -1,9 +1,9 @@
 /**
- * Jack Robbins
- * UCID: jmr226
- * Section 010
- * Semester: Spring 2024
- * Implementation of a PDA for project 2
+ * Author: Jack Robbins
+ * This program implements the pushdown automaton(PDA) for the language of floating expressions
+ * wrapped with ab^ka that is described in the README. It is a simple state machine that utilizes
+ * a large switch statement and stringstream. Upon execution, this program prints out the full processing
+ * log for each string, and is helpful in understanding PDA processing overall.
  */
 
 #include <iostream>
@@ -23,9 +23,9 @@ using namespace std;
  */
 int main(){
 	//Predeclare main PDA function
-	bool pda_226(string word);
-	//Big print statement
-	printf("Project 2 for CS 341\nSection number: 010\nSemester: Spring 2024\nWritten by: Jack Robbins, jmr226\nInstructor: Marvin Nakayama, marvin@njit.edu\n");
+	bool pda(string word);
+
+	printf("\nAuthor: Jack Robbins\nThis program allows you to check if certain strings are in the langauge A.\n");
 
 	int numStrings;
 	//prompt user for number of strings to enter
@@ -43,7 +43,7 @@ int main(){
 		cout << "\nProcessing string: " << word << endl << endl;
 
 		//Print out appropriate message
-		if(pda_226(word)) {
+		if(pda(word)) {
 			cout << "\n\n" << word << " is in the language\n" << endl;
 		} else {
 			cout << "\n" << word << " is not in the language\n" << endl;
@@ -58,7 +58,7 @@ int main(){
  * a while loop for grabbing chars, an enumerated pdaState type, and a large swtich statement. If at any point the
  * PDA crashes, this function hard exits by returning false.
  */
-bool pda_226(string word){
+bool pda(string word){
 	//All states in our pda. We don't need state 11 in this, as it's processing is always known
 	enum pdaState{q1=1, q2, q3, q4, q5, q6, q7, q8, q9, q10};
 	//All 10 digits for ease of finding

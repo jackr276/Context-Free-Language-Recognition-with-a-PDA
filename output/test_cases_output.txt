@@ -1,8 +1,6 @@
-Project 2 for CS 341
-Section number: 010
-Semester: Spring 2024
-Written by: Jack Robbins, jmr226
-Instructor: Marvin Nakayama, marvin@njit.edu
+
+Author: Jack Robbins
+This program allows you to check if certain strings are in the langauge A.
 
 Enter the number of strings that you would like to process: 
 Processing 15 strings
