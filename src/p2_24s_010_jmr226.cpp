@@ -23,7 +23,7 @@ using namespace std;
  */
 int main(){
 	//Predeclare main PDA function
-	bool pda(string word);
+	bool pda_226(string word);
 	//Big print statement
 	printf("Project 2 for CS 341\nSection number: 010\nSemester: Spring 2024\nWritten by: Jack Robbins, jmr226\nInstructor: Marvin Nakayama, marvin@njit.edu\n");
 
@@ -43,7 +43,7 @@ int main(){
 		cout << "\nProcessing string: " << word << endl << endl;
 
 		//Print out appropriate message
-		if(pda(word)) {
+		if(pda_226(word)) {
 			cout << "\n\n" << word << " is in the language\n" << endl;
 		} else {
 			cout << "\n" << word << " is not in the language\n" << endl;
@@ -58,8 +58,8 @@ int main(){
  * a while loop for grabbing chars, an enumerated pdaState type, and a large swtich statement. If at any point the
  * PDA crashes, this function hard exits by returning false.
  */
-bool pda(string word){
-	//All states in our pda
+bool pda_226(string word){
+	//All states in our pda. We don't need state 11 in this, as it's processing is always known
 	enum pdaState{q1=1, q2, q3, q4, q5, q6, q7, q8, q9, q10};
 	//All 10 digits for ease of finding
 	string numbers = "0123456789";
