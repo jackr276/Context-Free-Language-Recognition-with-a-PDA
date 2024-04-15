@@ -1,4 +1,4 @@
-# Validating expressions with a Pushdown Automaton
+# Validating Expressions with a Pushdown Automaton
 Author: [Jack Robbins](https://www.github.com/jackr276)
 
 ## Introduction
