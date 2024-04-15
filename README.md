@@ -6,7 +6,7 @@ This project defines and implements a Pushdown Automaton(PDA) that recognizes a 
 implmentation of the [PDA](https://github.com/jackr276/Expression-Validation-with-a-PDA/blob/main/src/pda.cpp), written in C++. Although the source code is very well documented, I would greatly encourage reading and understanding the README first to get a theoretical understanding
 of the project.
 
-## The Language A
+## The Language $A$
 ### Informal Definition
 Define the context-free language $A$ to be the set of all valid arithmetic floating point operations, enclosed in two strings of symbols in a specific format. Each string A is of the form:
 $ab^kaEab^ka$, for any $k \geq 0$, and any $E$ that is a valid expression over floating point numbers. 
