@@ -11,7 +11,7 @@ of the project.
 Define the context-free language $A$ to be the set of all valid arithmetic floating point operations, enclosed in two strings of symbols in a specific format. Each string A is of the form:
 $ab^kaEab^ka$, for any $k \geq 0$, and any $E$ that is a valid expression over floating point numbers. 
 
-Here is an example of a string in $A$: `abba(1.2/.2*0.2+(1.-2.+3.1))abba`
+Here is an example of a string in $A$: `abba(1.2*(1.-2.+3.1))abba`
 
 Although it may not be immediately obvious, $A$ is not a regular language. However, $A$ is a context-free language, because there exists a context free grammar that defines $A$.
 
@@ -31,8 +31,17 @@ And $R$ is the set of rules, which are as follows:
  * $N \rightarrow$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 With this context-free grammar $G$, we can formally define $A$ as the language of $G$, $A = L(G)$. This means that all strings in $A$ can be derived by $G$, and $G$ can only derive strings that are in $A$.
- 
- 
+
+### Example Derivation
+To make this context-free grammar more concrete, here is an example of how $G$ could derive the string: `abba(1.2*(1.-2.+3.1))abba`
+
+$S \Rightarrow$ a $T$ a $\Rightarrow$ ab $T$ ba $\Rightarrow$ abb $T$ bba $\Rightarrow$ abba $C$ abba $\Rightarrow$ abba( $C$ )abba $\Rightarrow$ abba( $C\*C$ )abba  
+  $\Rightarrow$ abba( $C*(C)$ )abba $\Rightarrow$ abba( $C*(C+C)$ )abba $\Rightarrow$ abba( $C*(C-C+C)$ )abba  
+  $\Rightarrow$ abba( $H*(C-C+C)$ )abba $\Rightarrow$ abba( $Y.Y*(C-C+C)$ )abba $\Rightarrow$ abba( $N.N*(C-C+C)$ )abba  
+  $\Rightarrow$ abba(1.2 $\*(C-C+C)$ )abba $\Rightarrow$ abba(1.2 $\*(H-C+C)$ )abba $\Rightarrow$ abba(1.2 $\*(Y.-C+C)$ )abba  
+  $\Rightarrow$ abba(1.2 $\*(N.-C+C)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-C+C)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-H+C)$ )abba  
+  $\Rightarrow$ abba(1.2 $\*(1.-Y.+C)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-N.+C)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-2.+C)$ )abba  
+  $\Rightarrow$ abba(1.2 $\*(1.-2.+H)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-2.+Y.Y)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-2.+3.1)$ )abba
 
 ### Proof: $A$ is not a regular language
 
