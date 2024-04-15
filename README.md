@@ -13,7 +13,26 @@ $ab^kaEab^ka$, for any $k \geq 0$, and any $E$ that is a valid expression over f
 
 Here is an example of a string in $A$: `abba(1.2/.2*0.2+(1.-2.+3.1))abba`
 
-Although it may not be immediately obvious, $A$ is not a regular language. However, $A$ is a context-free language, because there exists a context free grammar that defines $A$. 
+Although it may not be immediately obvious, $A$ is not a regular language. However, $A$ is a context-free language, because there exists a context free grammar that defines $A$.
+
+### Context Free Grammar for $A$
+For an exact definition of the langauge, $A$ can be defined by the context-free grammar $G$, which itself can be defined as the 4-tuple $G = (V, \Sigma, R, S)$, 
+where:
+ * $V = \\{S,T,C,H,Y,N\\}$ is the set of variables, also called nonterminals
+ * $\Sigma = \\{.,0,1,2,...,9,+,-,*,/,(,),a,b\\}$, where $\Sigma$ is the alphabet, also known as the set of terminals
+ * $S$ is the start variable
+
+And $R$ is the set of rules, which are as follows:
+ * $S \rightarrow$ a $T$ a
+ * $T \rightarrow$ b $T$ b | a $C$ a
+ * $C \rightarrow$ $C+C$ | $C-C$ | $C*C$ | $C/C$ | $(C)$ | $H$
+ * $H \rightarrow$ $Y.Y$ | $Y.$ | $.Y$
+ * $Y \rightarrow$ $NY$ | $N$
+ * $N \rightarrow$ 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+With this context-free grammar $G$, we can formally define $A$ as the language of $G$, $A = L(G)$. This means that all strings in $A$ can be derived by $G$, and $G$ can only derive strings that are in $A$.
+ 
+ 
 
 ### Proof: $A$ is not a regular language
 
