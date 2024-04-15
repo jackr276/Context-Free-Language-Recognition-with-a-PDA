@@ -43,9 +43,22 @@ $S \Rightarrow$ a $T$ a $\Rightarrow$ ab $T$ ba $\Rightarrow$ abb $T$ bba $\Righ
   $\Rightarrow$ abba(1.2 $\*(1.-Y.+C)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-N.+C)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-2.+C)$ )abba  
   $\Rightarrow$ abba(1.2 $\*(1.-2.+H)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-2.+Y.Y)$ )abba $\Rightarrow$ abba(1.2 $\*(1.-2.+3.1)$ )abba
 
-### Proof: $A$ is not a regular language
+>[!NOTE]
+>$G$ is not deterministic, meaning that there exist many ways to derive the same string using $G$. The above only demonstrates one such way of doing so.
 
-## Context-Free Grammar for A
+### Proof: $A$ is not a regular language
+Before introducing the Pushdown Automato(PDA), let's first understand why we need to use a PDA in for this language. It has already shown that the language $A$ is context free, because there exist a context-free grammar $G$, which was defined above, that derives all strings in the language
+$A$. However, since all regular languages are also context-free languages, it is worth asking why we can not instead use a regular expression to derive languages in $A$, or use a Deterministic Finite Automaton(DFA) or a Nondeterministc Finite Automaton(NFA) to recognize strings belonging to
+$A$. Tempting as it is to try and create a regular expression for $A$, it turns out that $A$ is proveably not a regular language, and therefore there exist no regular expression that derives $A$.
+
+To prove that $A$ is not regular, we will use a proof by contradiction and the **pumping lemma for regular languages**
+
+**Recall the pumping lemma for regular languages:**
+> If $A$ is a regular language, then $\exists$ number $p$, the pumping length, where if $s \in A$ and $|s| \leq p$, then the string $s$ can be split into three pieces $s = xyz$, which must satisfy the following properties:
+> 1. $xy^iz \in A$ for each $i \geq 0$
+> 2. $|y| \gt 0$
+> 3. $|xy| \leq p$
+
 
 
  
