@@ -54,7 +54,7 @@ $A$. Tempting as it is to try and create a regular expression for $A$, it turns 
 To prove that $A$ is not regular, we will use a proof by contradiction and the **pumping lemma for regular languages**.
 
 **Recall the pumping lemma for regular languages:**
-> If $A$ is a regular language, then $\exists$ number $p$, the pumping length, where if $s \in A$ and $|s| \leq p$, then the string $s$ can be split into three pieces $s = xyz$, which must satisfy the following properties:
+> If $A$ is a regular language, then $\exists$ number $p$, the pumping length, where if $s \in A$ and $|s| \geq p$, then the string $s$ can be split into three pieces $s = xyz$, which must satisfy the following properties:
 > 1. $xy^iz \in A$ for each $i \geq 0$
 > 2. $|y| \gt 0$
 > 3. $|xy| \leq p$
