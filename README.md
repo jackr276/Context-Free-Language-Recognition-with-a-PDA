@@ -62,7 +62,7 @@ To prove that $A$ is not regular, we will use a proof by contradiction and the *
 With this in mind, let's begin the proof.
 
 **Proof:**  
-Suppose that $A$ is a regular language, so $A$ has some pumping length $p$.  
+Suppose that $A$ is a regular language. It must follow that $A$ has some pumping length $p$.  
 Now consider the string $s = ab^pa(1.0)ab^pa \in A$, for which $|s| = p+p+9 = 2p+9 \geq p$, so the pumping lemma must hold for this such string.  
 So, by the **pumping lemma**, we can split $s$ into $s = xyz$, which must satisfy properties 1-3 of the pumping lemma.   
 
@@ -74,7 +74,7 @@ This leaves us with:
 So $s = xyz$ implies:  
 * $s = ab^kb^ma(1.))ab^pa$, so it follows that $k+m = p$
 
-This split leaves satisfies properties 2 & 3 above because:   
+This split satisfies properties 2 & 3 above because:   
 * $y = |k| \gt 0$, satisfying property 2
 * $|xy| = |x| + |y|$ which is at most $p-1 + 1 = p \leq p$, satisfying property 3
 
@@ -85,6 +85,14 @@ Property 1 implies that $s = xy^2z = xyyz \in A$, but
 Therefore, we have a **contradiction**, so $A$ cannot be regular.  
 **End proof**
 
+## A Pushdown Automaton(PDA) that recognizes $A$
+Since $A$ is not a regular language, an NFA and DFA are not capable of recognizing it. However, since there exists a Context-Free Grammer $G$ for $A$, $A$ is a Context-Free Language. Due to this, $A$ can be recognized using a Pushdown Automaton(PDA). A PDA can be thought of as an
+NFA or DFA with a stack "bolted on" for memory. This gives PDAs the extra feature of being able to remember and count symbols that they have seen before. This is especially useful in this problem because we need to count the number of `b` symbols, to ensure that the front and back of the
+string have an even number of them, and we also need to match `(` with `)` to make sure that the floating point expression component of the string is valid as well. With the extra features of a PDA, we can design a finite state machine $M$ that recognizes the $L(G)$, which itself is $A$.
 
-## PDA Diagram
-![pda drawing drawio(1)](https://github.com/jackr276/Expression-Validation-with-a-PDA/assets/113046361/1205c8ae-bdf5-4aae-9cd4-0d8c5c649076)
+### Pushdown Automaton $M$
+The most intuitive way to understand the PDA $M$ is to view the state machine diagram for it:   
+
+![pda drawing drawio(1)](https://github.com/jackr276/Expression-Validation-with-a-PDA/assets/113046361/1205c8ae-bdf5-4aae-9cd4-0d8c5c649076)   
+
+Notice how the transitions are of the form $a, a, \rightarrow b$. This is interpreted as "Read a from the input string, pop a off of the stack, push b onto the stack, move to the next state"
