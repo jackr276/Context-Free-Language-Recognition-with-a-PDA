@@ -1,4 +1,4 @@
-# Validating Expressions with a Pushdown Automaton
+# Context-Free Language Recognition with a Pushdown Automaton
 Author: [Jack Robbins](https://www.github.com/jackr276)
 
 ## Introduction
