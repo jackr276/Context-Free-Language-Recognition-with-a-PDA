@@ -169,3 +169,20 @@ In q8. Read ), pop ε, push ε. PDA crashes.
 ```
 Notice how upon reading the unmatched `)`,  the PDA crashes. This happens because it has no valid transitions out of the state q8 with the current state of the stack, meaning that the parenthesis must not be matched. A PDA crashing is a way of rejecting the string, so we 
 know that `abbbba(1.2*2.1))abbbba` is not in the language $A$.
+
+### Programmatic Implementation
+The C++ program [pda.cpp](https://github.com/jackr276/Expression-Validation-with-a-PDA/blob/main/src/pda.cpp) implements the PDA $M$ into an interactive program. The program itself is very simple and well documented, so the exact details of how it works will not be re-explained here. The program
+allows the user to test as many strings as they please with the PDA, and provides detailed output upon every transition that the PDA makes.
+
+#### Running this program
+The runner script [run.sh](https://github.com/jackr276/Expression-Validation-with-a-PDA/blob/main/run.sh) is provided for ease of compilation and execution. To run this program using the runner script, download the entirety of this project and navigate to the folder where it was downloaded.
+Following this, run the following commands:
+```console
+example@bash:~$ chmod +x run.sh
+example@bash:~$ ./run.sh
+Do you want to use the given test cases?[Y/n]:
+```
+At this stage, if you type `Y`, the program will be run with the 15 test cases that are provided in the [tests](https://github.com/jackr276/Expression-Validation-with-a-PDA/tree/main/tests) folder. This is a convenient and typing-free option if you just want to see what some output on example
+strings looks like. If you type `n`, then the program control will be given to you, and you will enter the strings that you want to process one by one.
+
+
