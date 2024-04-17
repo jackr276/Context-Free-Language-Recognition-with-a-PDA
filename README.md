@@ -95,4 +95,77 @@ The most intuitive way to understand the PDA $M$ is to view the state machine di
 
 ![pda drawing drawio(1)](https://github.com/jackr276/Expression-Validation-with-a-PDA/assets/113046361/1205c8ae-bdf5-4aae-9cd4-0d8c5c649076)   
 
-Notice how the transitions are of the form $a, a, \rightarrow b$. This is interpreted as "Read a from the input string, pop a off of the stack, push b onto the stack, move to the next state"
+>[!NOTE]
+> Notice how the transitions are of the form $a, a, \rightarrow b$. This is interpreted as "Read a from the input string, pop a off of the stack, push b onto the stack, move to the next state"
+
+#### Examples
+Let's see how this Pushdown Automaton processes the example string: `abba(1.1*(2.1/3.1)+((2.2*.8)+(1.2)))abba`. First, visually inspect the string and verify that it is in the langauge $A$.
+On taking in $A$, the PDA executes as follows:
+```
+In q1. Read ε, pop ε, push $. Move to q2.
+In q2. Read a, pop ε, push a. Move to q3.
+In q3. Read b, pop ε, push b. Move to q3.
+In q3. Read b, pop ε, push b. Move to q3.
+In q3. Read a, pop ε, push a. Move to q4.
+In q4. Read (, pop ε, push (. Move to q4.
+In q4. Read 1, pop ε, push ε. Move to q5.
+In q5. Read ., pop ε, push ε. Move to q7.
+In q7. Read 1, pop ε, push ε. Move to q7.
+In q7. Read *, pop ε, push ε. Move to q4.
+In q4. Read (, pop ε, push (. Move to q4.
+In q4. Read 2, pop ε, push ε. Move to q5.
+In q5. Read ., pop ε, push ε. Move to q7.
+In q7. Read 1, pop ε, push ε. Move to q7.
+In q7. Read /, pop ε, push ε. Move to q4.
+In q4. Read 3, pop ε, push ε. Move to q5.
+In q5. Read ., pop ε, push ε. Move to q7.
+In q7. Read 1, pop ε, push ε. Move to q7.
+In q7. Read ), pop (, push ε. Move to q8.
+In q8. Read +, pop ε, push ε. Move to q4.
+In q4. Read (, pop ε, push (. Move to q4.
+In q4. Read (, pop ε, push (. Move to q4.
+In q4. Read 2, pop ε, push ε. Move to q5.
+In q5. Read ., pop ε, push ε. Move to q7.
+In q7. Read 2, pop ε, push ε. Move to q7.
+In q7. Read *, pop ε, push ε. Move to q4.
+In q4. Read ., pop ε, push ε. Move to q6.
+In q6. Read 8, pop ε, push ε. Move to q7.
+In q7. Read ), pop (, push ε. Move to q8.
+In q8. Read +, pop ε, push ε. Move to q4.
+In q4. Read (, pop ε, push (. Move to q4.
+In q4. Read 1, pop ε, push ε. Move to q5.
+In q5. Read ., pop ε, push ε. Move to q7.
+In q7. Read 2, pop ε, push ε. Move to q7.
+In q7. Read ), pop (, push ε. Move to q8.
+In q8. Read ), pop (, push ε. Move to q8.
+In q8. Read ), pop (, push ε. Move to q8.
+In q8. Read a, pop a, push ε. Move to q9.
+In q9. Read b, pop b, push ε. Move to q9.
+In q9. Read b, pop b, push ε. Move to q9.
+In q9. Read a, pop a, push ε. Move to q10.
+In q10. Read ε, pop $, push ε. Move to q11.
+In q11, the accepting state. String has been fully processed. String is accepted.
+```
+
+Let's also look at an example of a string that is not in $A$, the string: `abbbba(1.2*2.1))abbbba`. Upon visual inspection, we can see that the parenthesis are not properly matched, so the expression is not valid. Let's see how $M$ handles it:
+```
+In q1. Read ε, pop ε, push $. Move to q2.
+In q2. Read a, pop ε, push a. Move to q3.
+In q3. Read b, pop ε, push b. Move to q3.
+In q3. Read b, pop ε, push b. Move to q3.
+In q3. Read b, pop ε, push b. Move to q3.
+In q3. Read b, pop ε, push b. Move to q3.
+In q3. Read a, pop ε, push a. Move to q4.
+In q4. Read (, pop ε, push (. Move to q4.
+In q4. Read 1, pop ε, push ε. Move to q5.
+In q5. Read ., pop ε, push ε. Move to q7.
+In q7. Read 2, pop ε, push ε. Move to q7.
+In q7. Read *, pop ε, push ε. Move to q4.
+In q4. Read 2, pop ε, push ε. Move to q5.
+In q5. Read ., pop ε, push ε. Move to q7.
+In q7. Read 1, pop ε, push ε. Move to q7.
+In q7. Read ), pop (, push ε. Move to q8.
+In q8. Read ), pop ε, push ε. PDA crashes.
+```
+Notice how upon reading the unmatched `)`,  the PDA crashes. This happens because it has no valid transitions out of the state q8 with the current state of the stack, meaning that the parenthesis must not be matched. A PDA crashing is a way of rejecting the string, so we 
+know that `abbbba(1.2*2.1))abbbba` is not in the language $A$.
